@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        #all {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        .content {
+            height: 60%;
+            width: 100%;
+        }
+
+        .foot {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 40%;
+            width: 100%;
+        }
+
+        .bangButton {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .myProgress {
+            width: 90%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="all">
+        <div class="head"></div>
+        <div class="content">
+            <progress v-bind:value="progressValue" v-bind:max="progressMaxValue" class="myProgress"></progress>
+        </div>
+        <div class="foot">
+            <div class="bangButton" v-bind:Value="btnVal1" v-on:click="add1"></div>
+            <div class="bangButton" v-bind:Value="btnVal2" v-on:click="add2"></div>
+            <div class="bangButton" v-bind:Value="btnVal3" v-on:click="add3"></div>
+            <div class="bangButton" v-bind:Value="btnVal4" v-on:click="add4"></div>
+            <div class="bangButton" v-bind:Value="btnVal5" v-on:click="add5"></div>
+            <div class="bangButton" v-bind:Value="btnVal6" v-on:click="add6"></div>
+        </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#all',
+            data: {
+                progressValue: 20,
+                progressMaxValue: 100,
+                btnVal1: 1,
+                btnVal2: 3,
+                btnVal3: 6,
+                btnVal4: 10,
+                btnVal5: 15,
+                btnVal6: 21,
+            },
+            methods: {
+                add1: function () {
+                    this.progressValue += this.btnVal1;
+                },
+                add2: function () {
+                    this.progressValue += this.btnVal2;
+                },
+                add3: function () {
+                    this.progressValue += this.btnVal3;
+                },
+                add4: function () {
+                    this.progressValue += this.btnVal4;
+                },
+                add5: function () {
+                    this.progressValue += this.btnVal5;
+                },
+                add6: function () {
+                    this.progressValue += this.btnVal6;
+                },
+            },
+        })
+    </script>
+
+</body>
+
+</html>

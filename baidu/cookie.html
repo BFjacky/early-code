@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+            console.log(document.cookie)
+        }
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();                            //trim()的作用是去除字符串两端的空格
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);   //indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置，所以这里的substring是获得了cname对应得cvalue
+            }
+            return "";
+        }
+        function checkCookie() {
+            var user = getCookie("username");
+            if (user != "") {
+                alert("Welcome again " + user);
+            }
+            else {
+                user = prompt("Please enter your name:", "");
+                if (user != "" && user != null) {
+                    setCookie("username", user, 365);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="checkCookie()">
+    <button type="button" onclick="checkCookie()">click this</button>
+</body>
+
+</html>

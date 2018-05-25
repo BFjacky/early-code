@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            border: 0px;
+            border-color: black;
+            border-style: solid;
+        }
+
+        .divhead {
+            background-color: #D9D9D9;
+            width: 100%;
+            height: 625px;
+        }
+
+        .divmain {
+            width: 100%;
+            height: 505px;
+        }
+
+        .divfoot {
+
+            width: 100%;
+            height: 275px;
+            background-color: #ecf0f1;
+        }
+
+        .divfoot_up {
+
+            width: 1200px;
+            height: 197px;
+            margin: 0 auto;
+        }
+
+        .divfoot_down {
+            width: 1200px;
+            height: 39px;
+            margin: 0 auto;
+        }
+
+        .divfoot_up00 {
+            width: 1200px;
+            height: 43px;
+        }
+
+        .divfoot_up0 {
+            float: left;
+            width: 15px;
+            height: 138px;
+        }
+
+        .divfoot_up1 {
+            float: left;
+            width: 168px;
+            height: 138px;
+        }
+
+        .divfoot_up2 {
+            float: left;
+            width: 331px;
+            height: 138px;
+        }
+
+        .divfoot_title {
+            width: 168px;
+            height: 30px;
+        }
+
+        .h4_font {
+            font-style: 宋体;
+            color: black;
+            font-weight: 400;
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ul_foot {
+            margin: 0;
+            padding: 0;
+            padding-top: 12px;
+            padding-left: 0;
+        }
+
+        .li_foot {
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+            margin-bottom: 6px;
+            list-style: none;
+        }
+
+        .a_foot {
+            font-weight: 100;
+            font-size: 15px;
+            color: gray;
+            text-decoration: none
+        }
+
+        .ul_foot2 {
+            margin: 0;
+            padding: 0;
+            margin-top: 3px;
+            margin-left: 18px;
+        }
+
+        .li_footdown {
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+            margin-bottom: 0px;
+            list-style: none;
+            float: left;
+        }
+
+        .divmain_up {
+
+            width: 1200px;
+            height: 208px;
+            margin: 20px auto;
+        }
+
+        .divmain_down {
+
+            width: 1200px;
+            height: 220px;
+            margin: 20px auto;
+        }
+
+        .divmain_upl {
+            width: 364px;
+            height: 188px;
+            float: left;
+            margin-left: 26px;
+        }
+
+        .divmain_downl {
+            width: 364px;
+            height: 220px;
+            float: left;
+            margin-left: 26px;
+        }
+
+        .divmain_up_tilte {
+            width: 364px;
+            height: 38px;
+        }
+
+        .divmain_up_article {
+            width: 364px;
+            height: 150px;
+        }
+
+        .divmain_down_tilte {
+            width: 364px;
+            height: 45px;
+        }
+
+        .divmain_down_article {
+            width: 364px;
+            height: 163px;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        p.article {
+            height: 150px;
+            text-align: justify;
+            line-height: 30px;
+            font-size: 14px;
+            color: #5e6267;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tab_item_current {
+            /*我只想说这个东西好神奇虽然我还不知道她是怎么出来的，但是能用已经很爽了！！！！*/
+            float: left;
+            width: 45px;
+            background-color: #8b9297;
+            display: inline-block;
+            margin-left: 6px;
+            height: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all .4s ease-out;
+            outline: 0;
+            text-decoration: underline;
+            text-align: right;
+            font-size: 0;
+        }
+
+        .tab_item {
+            float: left;
+            margin-left: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            background-color: #c5c5c5;
+            cursor: pointer;
+            transition: all .4s ease-out;
+            outline: 0;
+            text-decoration: underline;
+            text-align: right;
+            font-size: 0;
+        }
+
+        .divmain_ul {
+            transition: all .4s ease-out;
+            margin: 0;
+            padding: 0;
+            margin-top: 0px;
+        }
+
+        .divmain_li {
+            text-align: justify;
+            line-height: 25px;
+            font-size: 14px;
+            color: #5e6267;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            width: 280px;
+            float: left;
+            margin-bottom: 4px;
+        }
+
+        .date {
+            float: right;
+            margin-top: 5px;
+            font-size: 12px;
+            color: #bababa;
+            margin-right: 5px;
+        }
+
+        .divhead1 {
+            width: 100%;
+            height: 84px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .divhead2 {
+            width: 100%;
+            height: 135px;
+            position: absolute;
+            left: 0px;
+            top: 25%;
+            text-align: center;
+            color: white;
+            font-size: 90px;
+            cursor: default;
+        }
+
+        h1.logo {
+            width: 203px;
+            color: white;
+            height: 27px;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            font-size: 33px;
+            left: 350px;
+            top: 18px;
+        }
+
+        .divhead_ul {
+            width: 627.09px;
+            height: 83px;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            right: 200px;
+            top: 30px;
+        }
+
+        .divhead_li {
+            float: left;
+            list-style: none;
+            width: 124px;
+            height: 83px;
+        }
+
+        .divhead_a {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+        }
+
+        .divvideo {
+            width: 100%;
+            height: 625px;
+            position: absolute;
+            margin: 0;
+            padding: 0;
+        }
+
+        .tabitem_current_head {
+            margin-left: 10px;
+            width: 60px;
+            background-color: #87CEEB;
+            display: inline-block;
+            height: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all .4s ease-out;
+            outline: 0;
+            text-decoration: underline;
+            text-align: center;
+            font-size: 0;
+        }
+
+        .tabitem_head {
+            display: inline-block;
+            margin-left: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            background-color: #8b9297;
+            cursor: pointer;
+            transition: all .4s ease-out;
+            outline: 0;
+            text-decoration: underline;
+            text-align: center;
+            font-size: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="divhead">
+            <div class="divvideo">
+                <video id="Video" src="01.mp4" width="100%" height="625px" loop="loop" autoplay="autoplay">
+ 
+                </video>
+            </div>
+            <div class="divhead1">
+                <h1 class="logo">Tencent腾讯</h1>
+                <ul class="divhead_ul">
+                    <li class="divhead_li"><a href="" class="divhead_a">公司信息</a></li>
+                    <li class="divhead_li"><a href="" class="divhead_a">企业文化</a></li>
+                    <li class="divhead_li"><a href="" class="divhead_a">业务体系</a></li>
+                    <li class="divhead_li"><a href="" class="divhead_a">投资者关系</a></li>
+                    <li class="divhead_li"><a href="" class="divhead_a">简|繁|EN</a></li>
+                </ul>
+            </div>
+            <div class="divhead2">赋能你我 连接未来</div>
+            <div style="position:absolute;width:100%;margin:0 auto;padding:0;margin-top:590px;text-align:center;">
+                <a id="video1" class="tabitem_current_head" onclick="changeVideo(this)">1</a>
+                <a id="video2" class="tabitem_head" onclick="changeVideo(this)">2</a>
+            </div>
+        </div>
+        <script>
+            function changeVideo(t) {
+                var ele = document.getElementById(t.id);
+                var eleVideo = document.getElementById("Video");
+                if (t.id == "video1") {
+                    if (ele.className == "tabitem_current_head") {
+
+                    } else {
+                        document.getElementById("video2").className = "tabitem_head";
+                        ele.className = "tabitem_current_head";
+                        eleVideo.src = "01.mp4";
+                        eleVideo.load();
+                    }
+                }
+                else {
+                    if (ele.className == "tabitem_current_head") {
+
+                    } else {
+                        document.getElementById("video1").className = "tabitem_head";
+                        ele.className = "tabitem_current_head";
+                        eleVideo.src = "02.mp4";
+                                               eleVideo.load();
+                    }
+                }
+            }
+        </script>
+        <div class="divmain">
+            <div class="divmain_up">
+                <div class="divmain_upl">
+                    <div class="divmain_up_tilte">
+                        <h4 class="h4_font" style="float:left;width:293.5px;">腾讯简介</h4>
+                        <a href="#" style="font-weight: 100; font-size: 15px; text-decoration: none ;float:right;padding:0;margin:0;margin-right:4px;margin-top:3px;">更多>></a>
+                    </div>
+                    <div class="divmain_up_article">
+                        <p class="article">
+                            腾讯成立于1998年11月，是目前中国领先的互联网增值服务提供商之一。成立10多年来，腾讯一直秉承“一切以用户价值为依归”的经营理念，为 亿级海量用户提供稳定优质的各类服务，始终处于稳健发展状态。2004年6月16日，腾讯控股有限公司在香港联交所主板公开上市.
+                        </p>
+                    </div>
+                </div>
+                <div class="divmain_upl">
+                    <div class="divmain_up_tilte">
+                        <h4 class="h4_font" style="float:left;width:293.5px;">公司愿景</h4>
+                    </div>
+                    <div class="divmain_up_article">
+                        <p class="article">
+                            成为最受尊敬的互联网企业是腾讯的愿景目标。腾讯一直积极参与公益事业、努力承担企业社会责任、推动网络文明。 腾讯的每一项产品与业务都拥抱公益，开放互联，并倡导所有企业一起行动，通过互联网领域的技术、传播优势，缔造“人人可公益，民众齐参与”的互联网公益新生态。
+                        </p>
+                    </div>
+                </div>
+                <div class="divmain_upl">
+                    <div class="divmain_up_tilte">
+                        <h4 class="h4_font" style="float:left;width:293.5px;">视频介绍</h4>
+                    </div>
+                    <div class="divmain_up_article">
+                        <img src="imgs/02.jpg" style="margin-top:8px;">
+                    </div>
+                </div>
+            </div>
+            <div class="divmain_down">
+                <div class="divmain_downl">
+                    <div class="divmain_down_tilte">
+                        <h4 class="h4_font" style="float:left;width:293.5px;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;">腾讯公布2017年第一季度业绩[PDF版 file]</h4>
+                        <span class="date">05/17</span>
+                    </div>
+                    <div class="divmain_down_article">
+                        <img src="imgs/03.jpg" style="margin-top:0px;">
+                    </div>
+                </div>
+                <div class="divmain_downl">
+                    <div class="divmain_down_tilte">
+                        <h4 class="h4_font" style="float:left;width:293.5px;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;">腾讯公布2016年第四季度及全年业绩[PDF file]</h4>
+                        <span class="date">03/22</span>
+                    </div>
+                    <div class="divmain_down_article">
+                        <img src="imgs/04.jpg" style="width:100%;height:100%">
+                    </div>
+                </div>
+                <div class="divmain_downl">
+                    <div class="divmain_down_tilte">
+                        <div style="width:80px;height:10px;margin-left:280px;margin-top:8px;">
+                            <a id="a1" class="tab_item_current" onclick="changeClass(this)"><i>1</i></a>
+                            <a id="a2" class="tab_item" onclick="changeClass(this)"><i>2</i> </a>
+                            <a id="a3" class="tab_item" onclick="changeClass(this)"><i>3</i> </a>
+                        </div>
+                    </div>
+                    <script>
+                        function changeClass(t) {
+                            var ele = document.getElementById(t.id);
+                            var eleUl1 = document.getElementById("ul1");
+                            var eleUl2 = document.getElementById("ul2");
+                            var eleUl3 = document.getElementById("ul3");
+                            if (ele.className == "tab_item_current") {
+
+                            } else {
+                                ele.className = "tab_item_current";
+                                if (t.id == "a1") {
+                                    ele = document.getElementById("a2");
+
+                                    if (ele.className == "tab_item_current") {
+                                        ele.className = "tab_item";
+                                        eleUl2.style.display = "none";
+                                    } else {
+                                        ele = document.getElementById("a3");
+                                        ele.className = "tab_item";
+                                        eleUl3.style.display = "none";
+                                    }
+                                    eleUl1.style.display = "block";
+                                } else if (t.id == "a2") {
+                                    ele = document.getElementById("a1");
+
+                                    if (ele.className == "tab_item_current") {
+                                        ele.className = "tab_item";
+                                        eleUl1.style.display = "none";
+                                    } else {
+                                        ele = document.getElementById("a3");
+                                        ele.className = "tab_item";
+                                        eleUl3.style.display = "none";
+                                    }
+                                    eleUl2.style.display = "block";
+                                } else {      //t.id==a3
+                                    ele = document.getElementById("a1");
+
+                                    if (ele.className == "tab_item_current") {
+                                        ele.className = "tab_item";
+                                        eleUl1.style.display = "none";
+                                    } else {
+                                        ele = document.getElementById("a2");
+                                        ele.className = "tab_item";
+                                        eleUl2.style.display = "none";
+                                    }
+                                    eleUl3.style.display = "block";
+                                }
+                            }
+                        }
+                    </script>
+                    <div class="divmain_down_article" style="margin-top:-10px">
+                        <ul id="ul1" class="divmain_ul " style="margin-top:0px;display:block">
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯公布2016年第三季度业绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯公布2016年第三季度业绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯公布2016年第三季度业绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯公布2016年第三季度业绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯公布2016年第三季度业绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯公布2016年第三季度业绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                        </ul>
+                        <ul id="ul2" class="divmain_ul " style="margin-top:0px;display:none">
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯公布2016年第三季度绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯公布2016年第三季度绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯公布2016年第三季度绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯公布2016年第三季度绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯公布2016年第三季度绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯公布2016年第三季度绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                        </ul>
+                        <ul id="ul3" class="divmain_ul " style="margin-top:0px;display:none">
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯布2016年第三季度业绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯布2016年第三季度业绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯布2016年第三季度业绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯布2016年第三季度业绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯布2016年第三季度业绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                            <li class="divmain_li"><a href="#" style="color: #5e6267;text-decoration: none"> 腾讯布2016年第三季度业绩【PDF File】</a>></li>
+                            <span class="date">11/24</span>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divfoot">
+            <div class="divfoot_up">
+                <div class="divfoot_up00">
+                </div>
+                <div class="divfoot_up0">
+                </div>
+                <div class="divfoot_up1">
+                    <div class="divfoot_title">
+                        <h4 class="h4_font">了解更多</h4>
+                    </div>
+                    <ul class="ul_foot">
+                        <li class="li_foot"><a class="a_foot" href="#">街景视图</a></li>
+                    </ul>
+                </div>
+                <div class="divfoot_up1">
+                    <div class="divfoot_title">
+                        <h4 class="h4_font">关注我们</h4>
+                    </div>
+                    <ul class="ul_foot">
+                        <li class="li_foot"><a class="a_foot" href="#">微信</a></li>
+                        <li class="li_foot"><a class="a_foot" href="#">腾讯微博</a></li>
+                        <li class="li_foot"><a class="a_foot" href="#">新浪微博</a></li>
+                    </ul>
+                </div>
+                <div class="divfoot_up1">
+                    <div class="divfoot_title">
+                        <h4 class="h4_font">加入我们</h4>
+                    </div>
+                    <ul class="ul_foot">
+                        <li class="li_foot"><a class="a_foot" href="#">社会招聘</a></li>
+                        <li class="li_foot"><a class="a_foot" href="#">校园招聘</a></li>
+                        <li class="li_foot"><a class="a_foot" href="#">国际招聘</a></li>
+                    </ul>
+                </div>
+                <div class="divfoot_up1">
+                    <div class="divfoot_title">
+                        <h4 class="h4_font">联系我们</h4>
+                    </div>
+                    <ul class="ul_foot">
+                        <li class="li_foot"><a class="a_foot" href="#">客户服务</a></li>
+                        <li class="li_foot"><a class="a_foot" href="#">合作洽谈</a></li>
+                        <li class="li_foot"><a class="a_foot" href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="divfoot_up1">
+                    <div class="divfoot_title">
+                        <h4 class="h4_font">法律信息</h4>
+                    </div>
+                    <ul class="ul_foot">
+                        <li class="li_foot"><a class="a_foot" href="#">服务协议</a></li>
+                        <li class="li_foot"><a class="a_foot" href="#">隐私政策</a></li>
+                        <li class="li_foot"><a class="a_foot" href="#">知识产权</a></li>
+                    </ul>
+                </div>
+                <div class="divfoot_up2">
+                    <img src="imgs/01.jpg" style="margin-top:30px;margin-left:30px"></jpg>
+                </div>
+            </div>
+            <div class="divfoot_down">
+                <ul class="ul_foot2">
+                    <li class="li_footdown"> <a class="a_foot" href="#">法律声明&nbsp</a>
+                        <font style="font-weight:100;font-size:15px;color:gray;">|</font>
+                    </li>
+                    <li class="li_footdown"> <a class="a_foot" href="#">&nbsp&nbsp监督举报&nbsp&nbsp</a>
+                        <font style="font-weight:100;font-size:15px;color:gray;">|</font>
+                    </li>
+                    <li class="li_footdown"> <a class="a_foot" href="#">&nbsp&nbsp网站地图&nbsp&nbsp</a>
+                        <font style="font-weight:100;font-size:15px;color:gray;">|</font>
+                    </li>
+                    <li class="li_footdown"> <a class="a_foot" href="#">&nbsp&nbsp粤网文【2014】0633-233号</a> </li>
+                </ul>
+                <span style="font-weight:100;font-size:15px;color:gray;margin-left:150px"> Copyright © 1998 - 2017 Tencent. All Rights Reserved. </span>
+                <em style="font-weight:100;font-size:15px;color:gray;margin-left:15px;    font-style: normal">腾讯公司 版权所有</em>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

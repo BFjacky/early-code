@@ -1,0 +1,121 @@
+body {
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+        }
+
+        .head {
+            background-color: #1E1E1E;
+            height: 20%;
+        }
+
+        .title {
+            letter-spacing: 8px;
+            text-align: center;
+            color: #ADADAD;
+            font-size: 120px;
+            font-weight: 400;
+            font-family: "黑体", "Microsoft YaHei", "Arial", "宋体", sans-serif;
+        }
+
+        .main {
+            height: 80%;
+            width: 100%;
+            padding: 1px;
+            background-color: #383838;
+        }
+
+        .imformation {
+            text-align: center;
+            width: 60%;
+            height: 60%;
+            margin: auto auto;
+            margin-top: 0%;
+            background-color: #383838;
+            padding: 1px;
+        }
+
+        .imfor {
+            height: 100%;
+        }
+
+        .text {
+            margin-top: 10%;
+            height: 10%;
+        }
+
+        .textTilte {
+            color: #ADADAD;
+            font-size: 28px;
+        }
+
+        .textBlank {
+            background-color: #6E6E6E;
+            border: 1px solid #E8E8E8;
+            border-radius: 5px;
+            color: #E8E8E8;
+            height: 100%;
+            width: 40%;
+            font-size: 28px;
+        }
+
+        .captcha {
+            display: inline-block;
+            margin-left: 3%;
+        }
+
+        .button {
+            background-color: #6E6E6E;
+            color: #E8E8E8;
+            display: block;
+            margin: 0 auto;
+            margin-top: 10%;
+            height: 10%;
+            width: 20%;
+            border: 1px solid #E8E8E8;
+            font-size: 20px;
+            border-radius: 8px;
+            letter-spacing: 4px;
+            text-align: center;
+            padding: 0;
+            position: relative;
+            /*animation: loginMove 10s;*/
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            transition-property: transform;
+            transition-duration: 10s;
+            transition-timing-function: linear;
+
+        }
+
+        .button:hover {
+            transform: rotate(360deg);
+        }
+
+        @keyframes loginMove {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+            25% {
+                left: 500px;
+                top: -0px;
+            }
+            50% {
+                left: 0px;
+                top: -0px;
+            }
+            75% {
+                left: -500px;
+                top: -0px;
+            }
+            100% {
+                left: 0px;
+                top: 0px;
+            }
+        }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/login.css">
+    <title>登陆</title>
+
+</head>
+
+<body>
+    <div class='head'>
+        <div class='title'>QUERY</div>
+    </div>
+    <div class='main'>
+        <div class='imformation'>
+            <form class='imfor' action="/tryLogin" method='post'>
+                <div class='text'>
+                    <span class='textTilte'>ACCOUNT:</span>
+                    <input class='textBlank' type="text" value='A19150185' name='account'>
+                </div>
+                <div class='text'>
+                    <span class='textTilte'>PASSWORD:</span>
+                    <input class='textBlank' type="password" value='moshushi2012' name='password'>
+                </div>
+                <div class='text'>
+                    <span class='textTilte'> CAPTCHA:</span>
+                    <input class='textBlank' type="text" name='captcha'>
+                    <img class='captcha' src="/file/captcha.jpg"></img>
+                </div>
+                <input class='button' type="submit" value='LOGIN'>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        #all {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        .content {
+            height: 60%;
+            width: 100%;
+        }
+
+        .foot {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 40%;
+            width: 100%;
+        }
+
+        .bangButton {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .myProgress {
+            width: 90%;
+        }
+
+        .initRoom {
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="all">
+        <div class="head"></div>
+        <div class="content">
+            <progress v-bind:value="progressValue" v-bind:max="progressMaxValue" class="myProgress"></progress>
+            <div class="initRoom" v-on:click="initRoom">123</div>
+        </div>
+        <div class="foot">
+            <div class="bangButton" v-bind:Value="btnVal1" v-on:click="add1"></div>
+            <div class="bangButton" v-bind:Value="btnVal2" v-on:click="add2"></div>
+            <div class="bangButton" v-bind:Value="btnVal3" v-on:click="add3"></div>
+            <div class="bangButton" v-bind:Value="btnVal4" v-on:click="add4"></div>
+            <div class="bangButton" v-bind:Value="btnVal5" v-on:click="add5"></div>
+            <div class="bangButton" v-bind:Value="btnVal6" v-on:click="add6"></div>
+        </div>
+    </div>
+    <script src="public/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#all',
+            data: {
+                progressValue: 0,
+                progressMaxValue: 100,
+                btnVal1: 1,
+                btnVal2: 3,
+                btnVal3: 6,
+                btnVal4: 10,
+                btnVal5: 15,
+                btnVal6: 21,
+            },
+            methods: {
+                add1: function () {
+                    this.add(this.btnVal1);
+                },
+                add2: function () {
+                    this.add(this.btnVal2);
+                },
+                add3: function () {
+                    this.add(this.btnVal3);
+                },
+                add4: function () {
+                    this.add(this.btnVal4);
+                },
+                add5: function () {
+                    this.add(this.btnVal5);
+                },
+                add6: function () {
+                    this.add(this.btnVal6);
+                },
+                add: function (val) {
+                    //ajax提交请求获得排名数据
+                    let httpRequest = new XMLHttpRequest();
+                    httpRequest.onreadystatechange = function () {
+                        if (httpRequest.readyState === 4) {
+                            //获得当前value 的JSON格式数据
+                            let nowVal = JSON.parse(httpRequest.responseText);
+                            console.log(nowVal.newNowVal);
+                            vm.progressValue = nowVal.newNowVal;
+                        }
+                    }
+                    let url = "/bangbang/add?value=" + val;
+                    httpRequest.open('GET', url, true);
+                    httpRequest.send();
+                },
+                initRoom: function () {
+                    let httpRequest = new XMLHttpRequest();
+                    httpRequest.onreadystatechange = function () {
+                        if (httpRequest.readyState === 4) {
+                            console.log('初始化房间得到了回复');
+                        }
+                    }
+                    let url = "/bangbang/init";
+                    httpRequest.open('GET', url, true);
+                    httpRequest.send();
+                },
+                updateTimely: function () {
+                    console.log('循环发送ajax请求来获得val');
+                    //ajax提交请求获得nowVal数据
+                    let httpRequest = new XMLHttpRequest();
+                    httpRequest.onreadystatechange = function () {
+                        if (httpRequest.readyState === 4) {
+                            //获得当前value 的JSON格式数据
+                            let nowVal = JSON.parse(httpRequest.responseText);
+                            console.log(nowVal.newNowVal);
+                            vm.progressValue = nowVal.newNowVal;
+                        }
+                    }
+                    let url = "/bangbang/updateTimely";
+                    httpRequest.open('GET', url, true);
+                    httpRequest.send();
+                }
+            },
+        })
+        let interval = setInterval(function () {
+            vm.updateTimely()
+        }, 200);
+    </script>
+
+</body>
+
+</html>

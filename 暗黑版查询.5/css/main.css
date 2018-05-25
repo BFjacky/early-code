@@ -1,0 +1,69 @@
+div{
+    margin:0;
+    padding: 0;
+}
+body{
+    margin:0;
+    padding: 0;
+    height: 100vh;
+    background-image: url(/img/003.jpg); 
+    background-size: 100%;
+    
+}
+.title{
+    text-align: center;
+    width:100%;
+    height:20%;
+}
+.title h1{
+     letter-spacing: 4px;
+      text-align: center;
+      color: #ADADAD;
+  font-size: 60px;
+   font-weight: 400;
+   font-family: "黑体", "Microsoft YaHei", "Arial", "宋体", sans-serif;
+}
+.main{
+    margin-top: 5%;
+    text-align: center;
+    height:50%;
+    width:100%;
+}
+button{
+    width:15%;
+    height: 60%;
+    margin-right: 3%;
+    background-color: transparent;
+    color: #E8E8E8;
+    border: 1px solid #E8E8E8;
+    font-size: 300%;
+    border-radius: 100%;
+    letter-spacing: 10px;
+    text-align: center;
+    padding: 0;
+    position: relative;
+    outline: none;
+}
+button:hover{
+    border:5px solid #242424;
+}
+button:active{
+    position:relative;
+    top:2px;
+}
+#button1{
+       background-image: url(/img/006.jpg); 
+    background-size: 100%;
+}
+#button2{
+       background-image: url(/img/010.jpg); 
+    background-size: 100%;
+}
+#button3{
+       background-image: url(/img/008.jpg); 
+    background-size: 100%;
+}
+#button4{
+       background-image: url(/img/009.jpg); 
+    background-size: 100%;
+}

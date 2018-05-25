@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FunSnake</title>
+    <style>
+        html,
+        body,
+        div {
+            margin: 0;
+            padding: 0;
+        }
+
+        .all {
+            width: 600px;
+            height: 650px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .map {
+            display: flex;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            width: 600px;
+            height: 600px;
+            flex-wrap: wrap;
+            background-image: url(public/imgs/map.png);
+        }
+
+        .block_white {
+            width: 20px;
+            height: 20px;
+            background-color: rgb(68, 47, 41);
+            border-radius: 10px;
+            position: absolute;
+        }
+
+        .food_white {
+            width: 20px;
+            height: 20px;
+            background-color: #E6EB9F;
+            position: absolute;
+            border-radius: 10px;
+        }
+
+        .controlBar {
+            display: flex;
+            margin: 0 auto;
+            width: 600px;
+            height: 50px;
+        }
+
+        .score {
+            cursor: default;
+            user-select: none;
+            height: 50px;
+            display: flex;
+            font-size: 35px;
+            font-weight: 900;
+            text-align: left;
+            line-height: 50px;
+            margin-left: 8px;
+            flex-grow: 1;
+        }
+
+        .rank {
+            cursor: pointer;
+            user-select: none;
+            height: 50px;
+            display: flex;
+            font-size: 32px;
+            font-weight: 900;
+            text-align: left;
+            line-height: 40px;
+            border: 5px ridge #AAA7A7;
+            background-color: #E2D8D8;
+            box-sizing: border-box;
+            flex-grow: 0;
+        }
+
+        .rank:hover {
+            cursor: pointer;
+            user-select: none;
+            height: 50px;
+            display: flex;
+            font-size: 32px;
+            font-weight: 900;
+            text-align: left;
+            line-height: 40px;
+            border: 5px ridge #AAA7A7;
+            background-color: #AAA7A7;
+            box-sizing: border-box;
+            flex-grow: 0;
+        }
+
+        .rank:active {
+            cursor: pointer;
+            user-select: none;
+            height: 50px;
+            display: flex;
+            font-size: 32px;
+            font-weight: 900;
+            text-align: left;
+            line-height: 40px;
+            border: 5px outset #AAA7A7;
+            background-color: #AAA7A7;
+            box-sizing: border-box;
+            flex-grow: 0;
+        }
+
+        .restart {
+            width: 50px;
+            height: 50px;
+            background-image: url(public/imgs/restart_small.jpg);
+            flex-grow: 0;
+        }
+
+        .restart:hover {
+            width: 50px;
+            height: 50px;
+            background-image: url(public/imgs/restart_small_hover.jpg)
+        }
+
+        .restart:active {
+            width: 50px;
+            height: 50px;
+            background-image: url(public/imgs/restart_small_active.jpg)
+        }
+
+
+
+        .mask {
+            background-color: rgb(0, 0, 0);
+            opacity: 0.6;
+            width: 600px;
+            height: 650px;
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            margin: 0px;
+            padding: 0px;
+            display: block;
+            z-index: 10000;
+        }
+
+
+        .dialog {
+            background-color: #EEEBEB;
+            position: fixed;
+            display: flex;
+            left: 50%;
+            top: 50%;
+            flex-direction: column;
+            opacity: 1;
+            width: 300px;
+            height: 150px;
+            text-align: center;
+            border-radius: 8px;
+            z-index: 10001;
+        }
+
+        .content {
+            width: 100%;
+            height: 35%;
+            border-bottom: 2px solid #A19F9F;
+            box-sizing: border-box;
+            line-height: 52.5px;
+            font-size: 25px;
+            letter-spacing: 5px;
+        }
+
+        .input {
+            display: flex;
+            width: 100%;
+            height: 35%;
+            border-bottom: 2px solid #A19F9F;
+            box-sizing: border-box;
+            line-height: 52.5px;
+            font-size: 25px;
+            letter-spacing: 3px;
+            text-align: left;
+            padding-left: 45px;
+        }
+
+        .inputBlank {
+            border-width: 0px;
+            width: 132px;
+            background-color: #EEEBEB;
+            line-height: 52.5px;
+            font-size: 25px;
+            letter-spacing: 3px;
+            outline: none;
+        }
+
+        .confirm {
+            cursor: pointer;
+            user-select: none;
+            width: 100%;
+            height: 30%;
+            line-height: 45px;
+            font-size: 25px;
+            letter-spacing: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            border-radius:0px 0px 10px 10px;
+        }
+
+        .confirm:hover {
+            background-color: rgb(170, 154, 154);
+        }
+
+        .confirm:active {
+            background-color: rgb(117, 109, 109);
+        }
+
+        .rankDialog {
+            background-color: #EEEBEB;
+            position: fixed;
+            display: flex;
+            left: 50%;
+            top: 50%;
+            flex-direction: column;
+            opacity: 1;
+            width: 300px;
+            height: 500px;
+            text-align: center;
+            border-radius: 8px;
+            z-index: 10001;
+        }
+
+        .rankContent {
+            width: 100%;
+            height: 92%;
+            border-bottom: 2px solid #A19F9F;
+            box-sizing: border-box;
+            font-size: 10px;
+        }
+
+        .oneInfo {
+            justify-content: center;
+            display: flex;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid #A19F9F;
+            box-sizing: border-box;
+            font-size: 20px;
+        }
+
+        .infoPart {
+            flex-grow: 1;
+        }
+
+        .infoPart1 {
+           width:113px;
+           overflow: hidden;
+        }
+
+        .infoPart2 {
+            width:73px;
+            overflow: hidden;
+        }
+
+        .infoPart3 {
+            width:113px;
+            overflow: hidden;
+
+        }
+
+        .rankClose {
+            cursor: pointer;
+            user-select: none;
+            width: 100%;
+            height: 8%;
+            box-sizing: border-box;
+            font-size: 30px;
+            letter-spacing: 25px;
+            line-height: 40px;
+            border-radius: 0px 0px 8px 8px;
+            box-sizing: border-box;
+        }
+
+        .rankClose:hover {
+            background-color: rgb(170, 154, 154);
+        }
+
+        .rankClose:active {
+            background-color: rgb(117, 109, 109);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 0.6;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.7, 0.7) translate(-71.42%, -71.42%);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1, 1) translate(-50%, -50%);
+            }
+        }
+
+        @keyframes zoomOut {
+            from {
+                opacity: 1;
+                transform: scale(1, 1) translate(-50%, -50%);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.7, 0.7) translate(-71.42%, -71.42%);
+            }
+        }
+
+
+        .fadeIn {
+            animation-duration: 200ms;
+            animation-name: fadeIn;
+        }
+
+        .fadeOut {
+            animation-duration: 200ms;
+            animation-name: fadeOut;
+        }
+
+        .zoomIn {
+            animation-duration: 200ms;
+            animation-name: zoomIn;
+            animation-fill-mode: forwards;
+        }
+
+        .zoomOut {
+            animation-duration: 200ms;
+            animation-name: zoomOut;
+            animation-fill-mode: forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="all" class="all">
+        <div class="controlBar">
+            <div class="score" v-text="score">
+            </div>
+            <div class="rank" v-on:click="showRankDialog">排行榜</div>
+            <div class="restart" v-on:click="restart">
+            </div>
+        </div>
+        <div id="map" class="map" v-html="drawHtml"></div>
+        <div class="dialog" v-show="isShow" v-on:AnimationEnd="animationOver" v-bind:class="{zoomIn:fadeIn,zoomOut:fadeOut}">
+            <div class="content" v-text="content"></div>
+            <div class="input">
+                少侠留名:
+                <input class="inputBlank" type="text" v-model="playerName" />
+            </div>
+            <div class="confirm" v-on:click="submitName">&nbsp确认</div>
+        </div>
+        <div class="mask" v-show="isShow" v-bind:class="{fadeIn:fadeIn,fadeOut:fadeOut}"></div>
+
+        <div class="rankDialog" v-show="rankIsShow" v-on:AnimationEnd="rankAnimationOver" v-bind:class="{zoomIn:fadeIn,zoomOut:fadeOut}">
+            <div class="rankContent">
+                <div class="oneInfo">
+                    <div class="infoPart">蛇身长度</div>
+                    <div class="infoPart">玩家</div>
+                    <div class="infoPart">记录时间</div>
+                </div>
+                <div class="oneInfo" v-for="info in infos">
+                    <div class="infoPart1">{{info.score}}</div>
+                    <div class="infoPart2">{{info.name}}</div>
+                    <div class="infoPart3">{{info.time}}</div>
+                </div>
+            </div>
+            <div class="rankClose" v-on:click="closeRankDialog">&nbsp关闭</div>
+        </div>
+        <div class="mask" v-show="rankIsShow" v-bind:class="{fadeIn:fadeIn,fadeOut:fadeOut}"></div>
+    </div>
+
+    <script src="public/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#all",
+            data: {
+                drawHtml: '',
+                score: '蛇身长度:1',
+                isShow: false,
+                fadeIn: false,
+                fadeOut: false,
+                content: '',
+                playerName: '',
+                //蛇身长度
+                bodyLength: '',
+
+                infos: [],
+                rankIsShow: false,
+            },
+            methods: {
+                restart: function () {
+                    begin();
+                },
+                draw: function (html) {
+                    this.drawHtml = html;
+                },
+                changeScore: function (bodyLength) {
+                    this.score = '蛇身长度:' + bodyLength;
+                    this.bodyLength = bodyLength;
+                },
+                animationOver: function () {
+                    //如果是关闭动画结束，要将isShow的值设置为false
+                    if (this.isShow && this.fadeOut) {
+                        this.fadeOut = false;
+                        this.isShow = false;
+                    }
+                },
+                showDialog: function () {
+                    this.isShow = true;
+                    this.fadeIn = true;
+                },
+                closeDialog: function () {
+                    this.fadeIn = false;
+                    this.fadeOut = true;
+                },
+                submitName: function () {
+                    this.fadeIn = false;
+                    this.fadeOut = true;
+
+                    //ajax提交数据
+                    let httpRequest = new XMLHttpRequest();
+                    httpRequest.onreadystatechange = function () {
+                        vm.restart();
+                    }
+                    let url = "/snake/save?name=" + this.playerName + "&length=" + this.bodyLength;
+                    httpRequest.open('GET', url, true);
+                    httpRequest.send();
+                    this.playerName = '';
+                    this.bodyLength = '';
+
+                },
+                showRankDialog: function () {
+                    vm.getRank();
+                    this.rankIsShow = true;
+                    this.fadeIn = true;
+                },
+                closeRankDialog: function () {
+                    this.fadeIn = false;
+                    this.fadeOut = true;
+                },
+                getRank: function () {
+                    //ajax提交请求获得排名数据
+                    let httpRequest = new XMLHttpRequest();
+                    httpRequest.onreadystatechange = function () {
+                        //获得排名数据的JSON格式数据
+                        let rankObjs = JSON.parse(httpRequest.responseText);
+                        vm.infos = rankObjs;
+                    }
+                    let url = "/snake/rank";
+                    httpRequest.open('GET', url, true);
+                    httpRequest.send();
+                },
+                rankAnimationOver: function () {
+                    //如果是关闭动画结束，要将isShow的值设置为false
+                    if (this.rankIsShow && this.fadeOut) {
+                        this.fadeOut = false;
+                        this.rankIsShow = false;
+                    }
+                }
+            }
+        })
+    </script>
+    <script type="text/javascript" src="public/js/snake.js"></script>
+</body>
+
+</html>

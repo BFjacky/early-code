@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/lodash.js/4.17.4/lodash.core.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var name = "shixinping";
+        // console.log(name);
+        // var person = name;
+        // console.log(person);
+        // person = "zhuxiaojun"
+        // console.log(person);
+
+        // var jserMemember = {
+        //     coding: "强!",
+        //     face: "强!"
+        // }
+        // var shixinping = jserMemember;
+        // shixinping.dance = "强!";
+
+        // var yaozhuxi = jserMemember;
+        // yaozhuxi.speak = "强!";
+        // console.log('施心平:', shixinping);
+        // console.log('姚主席:', yaozhuxi);
+
+        // console.log(yaozhuxi === shixinping)
+
+        // var obj1 = {
+        //     name: "chenyunfei",
+        //     age: 20,
+        // }
+        // var obj2 = {
+        //     name: "chenyunfei",
+        //     age: 20,
+        // }
+        // console.log(obj1 === obj2);
+
+        // obj1 = {
+        //     name: "chenyunfei",
+        //     age: 20,
+        //     hobby: {
+        //         coding: true,
+        //         basketBall: true
+        //     }
+        // }
+        // obj2 = {
+        //     name: "chenyunfei",
+        //     age: 20,
+        //     hobby: {
+        //         coding: false,
+        //         basketBall: true
+        //     }
+        // }
+
+        // let flag = true;
+        // let obj1Sum = 0;
+        // let obj2Sum = 0
+        // for (ele in obj1) {
+        //     obj1Sum++;
+        // }
+        // for (ele in obj2) {
+        //     obj2Sum++;
+        // }
+        // if (obj2Sum !== obj1Sum) {
+        //     flag = false;
+        // }
+
+        // for (ele in obj1) {
+        //     if (obj2[ele] !== obj1[ele]) {
+        //         flag = false;
+        //     }
+        // }
+
+        // console.log(_.isEqual(obj1, obj2))
+
+
+        obj1 = {
+            name: "chenyunfei",
+            age: 20,
+            hobby: {
+                coding: true,
+                basketBall: true
+            }
+        }
+        obj2 = {
+            name: "chenyunfei",
+            age: 20,
+            hobby: {
+                coding: true,
+                basketBall: true
+            }
+        }
+        function isEqual(obj1, obj2) {
+            let flag = true;
+            //判断两个对象是否相等
+            for (ele in obj1) {
+                if (typeof obj1[ele] === "object") {
+                    //处理特殊情况(需要判断obj2[ele]是否存在)
+                    flag = isEqual(obj1[ele], obj2[ele]);
+                }
+                else {
+                    if (obj1[ele] !== obj2[ele]) {
+                        flag = false;
+                    }
+                }
+
+            }
+
+
+            for (ele in obj2) {
+                if (typeof obj2[ele] === "object") {
+                    //处理特殊情况(需要判断obj1[ele]是否存在)
+                    flag = isEqual(obj1[ele], obj2[ele]);
+                }
+                else {
+                    if (obj2[ele] !== obj1[ele]) {
+                        flag = false;
+                    }
+                }
+            }
+
+            return flag;
+        }
+
+        console.log(isEqual(obj1, obj2))
+
+
+    </script>
+</body>
+
+</html>

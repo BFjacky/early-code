@@ -1,0 +1,272 @@
+
+    html,body {
+        height:100%;
+        padding: 0;
+        margin: 0;
+    }
+    div {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    #head {
+        text-align: center;
+        background-color: #1A1A1A;
+    }
+
+    #title {
+        font-family: Georgia, Serif;
+        color: #ADADAD;
+        font-size: 40px;
+        font-weight: 700;
+    }
+
+    #function {
+        height: 20px;
+        text-align: center;
+    }
+
+    #Score {
+        display: none;
+    }
+
+    .childrenAdd {
+        color: #ADADAD;
+        font-weight: 500;
+    }
+
+    .add {
+        display: inline-block;
+        width: 25%;
+        text-align: center;
+        height: 170px;
+        padding: 20px 0;
+        vertical-align: middle;
+         overflow: hidden;
+    }
+
+    .add1 {
+        background-color: #424242;
+    }
+
+    .add2 {
+        background-color: 	#404040		;
+    }
+
+    .add3 {
+        background-color: #303030;
+    }
+
+    .add4 {
+        background-color: #282828;
+    }
+
+    .add5 {
+        background-color: #404040;
+    }
+
+    .add6 {
+        background-color: #3D3D3D;
+    }
+
+    .add7 {
+        background-color: #333333;
+    }
+
+    .add8 {
+        background-color: #515151;
+    }
+
+    .add9 {
+        background-color: #474747;
+    }
+
+    .add10 {
+        background-color: #404040;
+    }
+
+    .add11 {
+        background-color: #5B5B5B;
+    }
+
+    .add12 {
+        background-color: #454545;
+    }
+
+    .add13 {
+        background-color: #363636;
+    }
+
+    .add14 {
+        background-color: #3B3B3B;
+    }
+
+    .add15 {
+        background-color: #474747;
+    }
+
+    .add16 {
+        background-color: #282828;
+    }
+
+    .add17 {
+        background-color: #4D4D4D;
+    }
+
+    .add18 {
+        background-color: #404040;
+    }
+
+    .add19 {
+        background-color: #242424;
+    }
+
+    .add20 {
+        background-color: #292929;
+    }
+
+    .tab_item_current {
+        width: 45px;
+        background-color: #787878;
+        display: inline-block;
+        margin: 0 auto;
+        height: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all .4s ease-out;
+        outline: 0;
+        text-decoration: underline;
+        font-size: 0;
+    }
+
+    .tab_item {
+        display: inline-block;
+        margin: 0 auto;
+        width: 8px;
+        height: 8px;
+        border-radius: 8px;
+        background-color: #787878;
+        cursor: pointer;
+        transition: all .4s ease-out;
+        outline: 0;
+        text-decoration: underline;
+        font-size: 0;
+    }
+
+
+
+    #Schedule {
+        height:100%;
+    }
+
+    .TotalTitle {
+        height: 10%;
+    }
+
+    .courseTitle {
+        display: inline-block;
+        text-align: center;
+        height:100%;
+        width: 12.5%;
+        background-color: #262626;
+        font-size:24px;
+        line-height: 56px;
+        color:#ADADAD
+    }
+
+    .courses{
+        display: inline-block;
+        height:100%;
+        width:92%;
+    }
+    .course{
+        border:1px #303030 solid;
+        height:16.6666666666666666666666666666666666666666666666666666666666666667%;
+        width: 14.285%;
+        background-color: #454545;
+        display:inline-block;
+        text-align:center;
+        overflow: visible;
+        vertical-align: top;
+    }
+    .courseNow{
+        border:1px #303030 solid;
+        height:16.6666666666666666666666666666666666666666666666666666666666666667%;
+        width: 14.285%;
+        background-color: #262626;
+        display:inline-block;
+        text-align:center;
+        overflow: visible;
+        vertical-align: top;
+    }
+    .courseData{
+        padding: 0 ;
+        margin : 0;
+        width:100%;
+        text-align: center;
+        font-size:15px;
+        font-weight: 500;
+        color:#ADADAD;
+        font-family:"Microsoft YaHei","黑体","Arial","宋体",sans-serif;
+    }
+    #weeks{
+        display: inline-block;
+        width:8%;
+        height:100%;
+        background-color: #262626;
+         vertical-align: top;
+         font-size: 20px;
+    }
+    .week_blank{
+        text-align: center;
+        height:6.25%;
+        width: 100%;
+        background-color: #454545;
+        color:#ADADAD;
+        cursor:pointer;
+    }    
+    .week_blank_choose{
+        text-align: center;
+        height:6.25%;
+        width: 100%;
+        background-color: #303030;
+        color:#ADADAD;
+    }
+    .week_blank:hover{
+        background-color: #303030;
+    }
+    .week_blank:active{
+        background-color: #242424; 
+    }
+
+    .weekName{
+        display:inline-block;
+        vertical-align:middle;
+    }
+    .window{
+        display: none;
+        border:4px groove #787878 ;
+        position:absolute;
+        top:40%;
+        left:40%;
+        width:20%;
+        height:40%;
+        background-color:  #4D4D4D;
+        border-radius: 15px;
+    }
+    .closeWindow{
+        outline: none;
+        position:relative;
+        width:20%;
+        height:10%;
+        background-color: #242424;
+        border:4px outset #515151;
+        top:0px;
+        left:79%;
+        color:#F0F0F0;
+        border-radius:5px;
+        cursor: pointer;
+    }
+    .closeWindow:active{
+        border:4px ridge #515151;
+    }
